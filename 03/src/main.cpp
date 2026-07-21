@@ -140,7 +140,7 @@ int main()
 
             if(smallestDistanceIndex == -1 || smallestDistance == 0 || (distance < smallestDistance))
             {
-                smallestDistanceIndex = i;
+                smallestDistanceIndex = static_cast<int>(i);
                 smallestDistance = distance;
             }
         }
@@ -157,7 +157,7 @@ int main()
         {
             if(fewestStepsIndex == -1 || fewestStepsIndex == 0 || (intersections[i].second < fewestSteps))
             {
-                fewestStepsIndex = i;
+                fewestStepsIndex = static_cast<int>(i);
                 fewestSteps = intersections[i].second;
             }
         }

@@ -4,7 +4,8 @@
 #include <string>       // std::string && std::getline && std::stoul && std::stoi
 #include <set>          // std::set
 #include <map>          // std::map
-#include <math.h>       // atan2
+#define _USE_MATH_DEFINES // M_PI
+#include <math.h>       // atan2, M_PI
 #include <algorithm>    // std::sort
 
 // Finds the asteroid that can detect the most other asteroids and how many asteroids it can detect
@@ -26,8 +27,8 @@ std::pair<unsigned int, unsigned int> findBestAsteroid(const std::vector<std::ve
                     if(!asteroidMap[i][j]) continue;
                     if(i == y && j == x) continue;
 
-                    float distanceX = (int)j - (int)x;
-                    float distanceY = (int)i - (int)y;
+                    float distanceX = (float)((int)j - (int)x);
+                    float distanceY = (float)((int)i - (int)y);
 
                     angles.insert(atan2(distanceY, distanceX));
                 }
@@ -35,9 +36,9 @@ std::pair<unsigned int, unsigned int> findBestAsteroid(const std::vector<std::ve
 
             if(angles.size() > maxDetectableCount)
             {
-                maxDetectableCount = angles.size();
-                bestX = x;
-                bestY = y;
+                maxDetectableCount = (unsigned int)angles.size();
+                bestX = (unsigned int)x;
+                bestY = (unsigned int)y;
             }
         }
     }
@@ -61,9 +62,9 @@ std::map<float, std::vector<std::pair<unsigned int, unsigned int>>> evaluateAste
             if(x == asteroidPos.first && y == asteroidPos.second) continue;
 
             std::pair<float, float> direction = {(float)x - (float)asteroidPos.first, (float)y - (float)asteroidPos.second};
-            float angle = std::fmod(atan2(axis.first * direction.second - axis.second * direction.first,  axis.first * direction.first + axis.second * direction.second) - 2.0f * M_PI + 2.0f * M_PI, 2.0f * M_PI);
+            float angle = (float)std::fmod(atan2(axis.first * direction.second - axis.second * direction.first,  axis.first * direction.first + axis.second * direction.second) - 2.0f * M_PI + 2.0f * M_PI, 2.0f * M_PI);
 
-            distancesByAngle[angle].push_back({x, y});
+            distancesByAngle[angle].push_back({(unsigned int)x, (unsigned int)y});
         }
     }
 
@@ -85,12 +86,12 @@ std::map<float, std::vector<std::pair<unsigned int, unsigned int>>> evaluateAste
         std::sort(distancesVector.begin(), distancesVector.end(), 
         [&](std::pair<unsigned int, unsigned int> l, std::pair<unsigned int, unsigned int> r)
         {
-            float distanceL = sqrt(
+            float distanceL = (float)sqrt(
                 (l.first - asteroidPos.first)*(l.first - asteroidPos.first) + 
                 (l.second - asteroidPos.second)*(l.second - asteroidPos.second)
             );
 
-            float distanceR = sqrt(
+            float distanceR = (float)sqrt(
                 (r.first - asteroidPos.first)*(r.first - asteroidPos.first) + 
                 (r.second - asteroidPos.second)*(r.second - asteroidPos.second)
             );

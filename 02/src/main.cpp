@@ -56,8 +56,8 @@ int main()
     // Part 2
     {
         // Run program with inputs [0-99, 0-99] until desired result
-        for(size_t i = 0; i < 100; i++)
-            for(size_t j = 0; j < 100; j++)
+        for(unsigned int i = 0; i < 100; i++)
+            for(unsigned int j = 0; j < 100; j++)
                 if(runIntcode(intcode, i, j) == 19690720)
                 {
                     std::cout << "Part 2: \n\tThe parameters that give 19690720 as result are:\n\tNoun: " << i  << "\n\tVerb: " << j << std::endl;       

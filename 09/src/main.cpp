@@ -120,7 +120,7 @@ private:
             return write(read(location, 1), 1);
         else if(mode == 1) // Value mode
             return memory[location];
-        else if(mode == 2) // Relative mode
+        else // Relative mode (mode == 2)
             return write(read(location, 1) + base, 1);
     }
 

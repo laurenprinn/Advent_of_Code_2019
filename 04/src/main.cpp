@@ -1,6 +1,7 @@
 #include <iostream>     // std::cout
 #include <fstream>      // ifstream
 #include <vector>       // std::vector
+#include <string>       // std::to_string
 #include <algorithm>    // std::remove_if
 
 bool satisfiesPart1Criteria(unsigned int e)
@@ -109,7 +110,7 @@ int main()
     // Part 1
     {
         size_t count = 0;
-        for(size_t i = rangeStart; i <= rangeEnd; i++)
+        for(unsigned int i = rangeStart; i <= rangeEnd; i++)
             if(satisfiesPart1Criteria(i))
                 count++;
 
@@ -119,7 +120,7 @@ int main()
     // Part 2
     {
         size_t count = 0;
-        for(size_t i = rangeStart; i <= rangeEnd; i++)
+        for(unsigned int i = rangeStart; i <= rangeEnd; i++)
             if(satisfiesPart2Criteria(i))
                 count++;
         

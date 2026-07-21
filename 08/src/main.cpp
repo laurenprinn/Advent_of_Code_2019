@@ -22,9 +22,9 @@ int main()
     // Part 1
     {
         const unsigned int width = 25, height = 6;
-        const unsigned int layers = image.size() / (width * height);
+        const size_t layers = image.size() / (width * height);
 
-        unsigned int fewestZeroes, onesMultTwos;
+        unsigned int fewestZeroes = 0, onesMultTwos = 0;
         for(size_t i = 0; i < layers; i++)
         {
             unsigned int numCount[3] {0, 0, 0}; // Count of zeroes, ones and twos
@@ -48,7 +48,7 @@ int main()
     // Part 2
     {
         const unsigned int width = 25, height = 6;
-        const unsigned int layers = image.size() / (width * height);
+        const size_t layers = image.size() / (width * height);
 
         std::array<unsigned int, width * height> decoded;
         decoded.fill(2);

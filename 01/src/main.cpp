@@ -23,7 +23,7 @@ int main()
 
     // Part 1
     {
-        unsigned int result;
+        unsigned int result = 0;
 
         // Calculate sum of fuel requirements
         for(unsigned int moduleMass : modulesMass)
@@ -43,7 +43,7 @@ int main()
 
             while(addedMass > 0)
             {
-                float addedFuel = addedMass / 3 - 2;
+                int addedFuel = addedMass / 3 - 2;
 
                 if(addedFuel > 0) // Any mass that would require negative fuel should instead be treated as if it requires zero fuel.
                     modulesFuelTotal[i] += addedFuel;
@@ -52,7 +52,7 @@ int main()
             }
         }
 
-        unsigned int result;
+        unsigned int result = 0;
 
         // Calculate sum of fuel requirements
         for(unsigned int moduleFuel : modulesFuelTotal)

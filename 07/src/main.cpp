@@ -156,7 +156,7 @@ int main()
         std::vector<int> phaseSettings {0, 1, 2, 3, 4};
 
         int maxOutput = 0;
-        for(size_t i = 0; i < factorial(phaseSettings.size()); i++) // For every possible permutation of phase settings
+        for(size_t i = 0; i < factorial(static_cast<unsigned int>(phaseSettings.size())); i++) // For every possible permutation of phase settings
         {
             std::vector<IntcodeComputer> amplifiers(5, intcode);
 
@@ -190,7 +190,7 @@ int main()
         std::vector<int> phaseSettings {5, 6, 7, 8, 9};
 
         int maxOutput = 0;
-        for(size_t i = 0; i < factorial(phaseSettings.size()); i++) // For every possible permutation of phase settings
+        for(size_t i = 0; i < factorial(static_cast<unsigned int>(phaseSettings.size())); i++) // For every possible permutation of phase settings
         {
             std::vector<IntcodeComputer> amplifiers(5, intcode);
 
