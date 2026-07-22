@@ -4,8 +4,10 @@
 #include <string>       // std::string && std::getline && std::stoul && std::stoi
 #include <set>          // std::set
 #include <map>          // std::map
+#define _USE_MATH_DEFINES
 #include <math.h>       // atan2
 #include <algorithm>    // std::sort
+
 
 // Finds the asteroid that can detect the most other asteroids and how many asteroids it can detect
 std::pair<unsigned int, unsigned int> findBestAsteroid(const std::vector<std::vector<bool>>& asteroidMap, unsigned int& detectableCount)

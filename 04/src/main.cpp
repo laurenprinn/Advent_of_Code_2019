@@ -2,6 +2,7 @@
 #include <fstream>      // ifstream
 #include <vector>       // std::vector
 #include <algorithm>    // std::remove_if
+#include <string>
 
 bool satisfiesPart1Criteria(unsigned int e)
 {
